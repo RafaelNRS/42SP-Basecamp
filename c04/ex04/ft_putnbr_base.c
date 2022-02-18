@@ -6,7 +6,7 @@
 /*   By: ranascim <ranascim@42.student.42sp.org.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:41:27 by ranascim          #+#    #+#             */
-/*   Updated: 2022/02/15 18:18:16 by ranascim         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:27:03 by ranascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,17 @@ int	ft_check_repeat(char *str)
 
 void	ft_convert(int nbr, char *base, int n_base)
 {
-	if (nbr < 0)
+	long nbr_l;
+
+	nbr_l = nbr;
+	if (nbr_l < 0)
 	{
 		ft_putchar('-');
-		nbr = nbr * -1;
+		nbr_l = nbr_l * -1;
 	}
-	if (nbr >= n_base)
-		ft_convert(nbr / n_base, base, n_base);
-	ft_putchar(base[nbr % n_base]);
+	if (nbr_l >= n_base)
+		ft_convert(nbr_l / n_base, base, n_base);
+	ft_putchar(base[nbr_l % n_base]);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
